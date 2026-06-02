@@ -4,7 +4,7 @@ A high-performance, real-time sports scoreboard and administrative panel support
 
 ---
 
-## 🚀 Performance & Scalability (1,000 - 5,000+ Concurrent Users)
+## 🚀 Performance & Scalability 
 
 To handle high traffic volume without server lag or crashes, the system is designed with several production-ready optimizations:
 
