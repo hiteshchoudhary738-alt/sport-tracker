@@ -1,0 +1,17 @@
+/* Minimal Clean Reset for index.css */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-height: 100%;
+}
+
+#root {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-height: 100vh;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+}
