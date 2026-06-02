@@ -1245,14 +1245,14 @@ const AdminSimulator = ({ matches, socket, setMatches }) => {
                           style={{ flex: 1, padding: '8px', fontSize: '12px' }}
                           onClick={() => setFbTeam('home')}
                         >
-                          ⚽ ${selectedMatch.home_team_short} Squad
+                          ⚽ {selectedMatch.home_team_short} Squad
                         </button>
                         <button 
                           className={`btn ${fbTeam === 'away' ? 'btn-primary' : 'btn-secondary'}`}
                           style={{ flex: 1, padding: '8px', fontSize: '12px' }}
                           onClick={() => setFbTeam('away')}
                         >
-                          ⚽ ${selectedMatch.away_team_short} Squad
+                          ⚽ {selectedMatch.away_team_short} Squad
                         </button>
                       </div>
                       
@@ -1329,14 +1329,14 @@ const AdminSimulator = ({ matches, socket, setMatches }) => {
                           style={{ flex: 1, padding: '8px', fontSize: '12px' }}
                           onClick={() => setBbTeam('home')}
                         >
-                          🏀 ${selectedMatch.home_team_short} Squad
+                          🏀 {selectedMatch.home_team_short} Squad
                         </button>
                         <button 
                           className={`btn ${bbTeam === 'away' ? 'btn-primary' : 'btn-secondary'}`}
                           style={{ flex: 1, padding: '8px', fontSize: '12px' }}
                           onClick={() => setBbTeam('away')}
                         >
-                          🏀 ${selectedMatch.away_team_short} Squad
+                          🏀 {selectedMatch.away_team_short} Squad
                         </button>
                       </div>
                       
@@ -1388,7 +1388,7 @@ const AdminSimulator = ({ matches, socket, setMatches }) => {
                       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
                         <div>
                           <div style={{ fontSize: '12px', fontWeight: 'bold', marginBottom: '8px', color: 'var(--color-primary)' }}>
-                            ${selectedMatch.home_team_name} (Home)
+                            {selectedMatch.home_team_name} (Home)
                           </div>
                           <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                             <button className="event-trigger-btn" onClick={() => handleTriggerEvent('point', { team: 'home' })}>
@@ -1408,7 +1408,7 @@ const AdminSimulator = ({ matches, socket, setMatches }) => {
 
                         <div>
                           <div style={{ fontSize: '12px', fontWeight: 'bold', marginBottom: '8px', color: 'var(--color-secondary)' }}>
-                            ${selectedMatch.away_team_name} (Away)
+                            {selectedMatch.away_team_name} (Away)
                           </div>
                           <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                             <button className="event-trigger-btn" onClick={() => handleTriggerEvent('point', { team: 'away' })}>
@@ -1440,14 +1440,14 @@ const AdminSimulator = ({ matches, socket, setMatches }) => {
                           style={{ flex: 1, padding: '8px', fontSize: '12px' }}
                           onClick={() => setFbTeam('home')}
                         >
-                          ⚽ ${selectedMatch.home_team_short} Squad
+                          ⚽ {selectedMatch.home_team_short} Squad
                         </button>
                         <button 
                           className={`btn ${fbTeam === 'away' ? 'btn-primary' : 'btn-secondary'}`}
                           style={{ flex: 1, padding: '8px', fontSize: '12px' }}
                           onClick={() => setFbTeam('away')}
                         >
-                          ⚽ ${selectedMatch.away_team_short} Squad
+                          ⚽ {selectedMatch.away_team_short} Squad
                         </button>
                       </div>
                       
@@ -1524,14 +1524,14 @@ const AdminSimulator = ({ matches, socket, setMatches }) => {
                           style={{ flex: 1, padding: '8px', fontSize: '12px' }}
                           onClick={() => setBbTeam('home')}
                         >
-                          🏀 ${selectedMatch.home_team_short} Squad
+                          🏀 {selectedMatch.home_team_short} Squad
                         </button>
                         <button 
                           className={`btn ${bbTeam === 'away' ? 'btn-primary' : 'btn-secondary'}`}
                           style={{ flex: 1, padding: '8px', fontSize: '12px' }}
                           onClick={() => setBbTeam('away')}
                         >
-                          🏀 ${selectedMatch.away_team_short} Squad
+                          🏀 {selectedMatch.away_team_short} Squad
                         </button>
                       </div>
                       
@@ -1583,7 +1583,7 @@ const AdminSimulator = ({ matches, socket, setMatches }) => {
                       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
                         <div>
                           <div style={{ fontSize: '12px', fontWeight: 'bold', marginBottom: '8px', color: 'var(--color-primary)' }}>
-                            ${selectedMatch.home_team_name} (Home)
+                            {selectedMatch.home_team_name} (Home)
                           </div>
                           <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                             <button className="event-trigger-btn" onClick={() => handleTriggerEvent('point', { team: 'home' })}>
@@ -1603,7 +1603,7 @@ const AdminSimulator = ({ matches, socket, setMatches }) => {
 
                         <div>
                           <div style={{ fontSize: '12px', fontWeight: 'bold', marginBottom: '8px', color: 'var(--color-secondary)' }}>
-                            ${selectedMatch.away_team_name} (Away)
+                            {selectedMatch.away_team_name} (Away)
                           </div>
                           <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                             <button className="event-trigger-btn" onClick={() => handleTriggerEvent('point', { team: 'away' })}>

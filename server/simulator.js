@@ -834,7 +834,6 @@ export const triggerEvent = (matchId, io, type, details) => {
         stats.batsmen[b] = stats.batsmen[b] || { runs: 0, balls: 0, fours: 0, sixes: 0, out: false };
         stats.batsmen[b].out = true;
         stats.batsmen[b].balls += 1;
-        strikerText = ` (& b & stats.batsmen[b].runs & off & stats.batsmen[b].balls & b, OUT)`.replace(/&/g, '');
         strikerText = ` (${b} ${stats.batsmen[b].runs} off ${stats.batsmen[b].balls}b, OUT)`;
       }
       
