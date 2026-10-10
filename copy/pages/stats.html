@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stats Leaderboards — CricTrack</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="../index.html" class="brand-logo">
+        🏏 Cric<span class="green">Track</span>
+      </a>
+
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation">☰</button>
+
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="../index.html" class="nav-link">Home</a></li>
+        <li><a href="matches.html" class="nav-link">Matches</a></li>
+        <li><a href="players.html" class="nav-link">Players</a></li>
+        <li><a href="stats.html" class="nav-link active">Stats Leaderboard</a></li>
+      </ul>
+
+      <div class="nav-right">
+        <div class="search-wrapper">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="searchInput" class="search-input" placeholder="Search player, match..." autocomplete="off">
+          <div id="searchDropdown" class="search-dropdown"></div>
+        </div>
+        <button id="themeToggleBtn" class="theme-toggle-btn" title="Toggle Theme">☀️</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Container -->
+  <main class="main-content">
+    <div class="section-header">
+      <h1 class="section-title">Cricket Stats Leaderboards</h1>
+    </div>
+
+    <!-- Format Tabs -->
+    <div id="formatTabs" class="filter-tabs">
+      <button class="tab-btn" onclick="setStatsFormat('Test', this)">Test Format</button>
+      <button class="tab-btn active" onclick="setStatsFormat('ODI', this)">ODI Format</button>
+      <button class="tab-btn" onclick="setStatsFormat('T20', this)">T20 Format</button>
+    </div>
+
+    <!-- Category Filter Tabs -->
+    <div id="categoryTabs" class="filter-tabs">
+      <button class="tab-btn active" onclick="setStatsCategory('runs', this)">🏏 Most Runs</button>
+      <button class="tab-btn" onclick="setStatsCategory('avg', this)">Batting Avg</button>
+      <button class="tab-btn" onclick="setStatsCategory('sr', this)">Strike Rate</button>
+      <button class="tab-btn" onclick="setStatsCategory('hundreds', this)">100s</button>
+      <button class="tab-btn" onclick="setStatsCategory('wickets', this)">⚾ Most Wickets</button>
+      <button class="tab-btn" onclick="setStatsCategory('economy', this)">Economy</button>
+      <button class="tab-btn" onclick="setStatsCategory('bowlAvg', this)">Bowling Avg</button>
+    </div>
+
+    <!-- Leaderboard Container -->
+    <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.5rem;">
+      <h3 id="leaderboardTitle" style="font-size: 1.2rem; font-weight: 700; margin-bottom: 1rem; color: var(--accent-green);">
+        ODI — Most Runs
+      </h3>
+      <div id="leaderboardContainer">
+        <!-- Injected by stats.js -->
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem;">
+      <div>
+        <strong style="color: var(--text-main);">CricTrack</strong> — Static Cricket Stats & Live Match Dashboard
+      </div>
+      <div>
+        Data stored locally in browser via <code>localStorage</code>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../js/data.js"></script>
+  <script src="../js/app.js"></script>
+  <script src="../js/stats.js"></script>
+</body>
+</html>

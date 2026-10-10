@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Matches & Scorecards — CricTrack</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="../index.html" class="brand-logo">
+        🏏 Cric<span class="green">Track</span>
+      </a>
+
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation">☰</button>
+
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="../index.html" class="nav-link">Home</a></li>
+        <li><a href="matches.html" class="nav-link active">Matches</a></li>
+        <li><a href="players.html" class="nav-link">Players</a></li>
+        <li><a href="stats.html" class="nav-link">Stats Leaderboard</a></li>
+      </ul>
+
+      <div class="nav-right">
+        <div class="search-wrapper">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="searchInput" class="search-input" placeholder="Search player, match..." autocomplete="off">
+          <div id="searchDropdown" class="search-dropdown"></div>
+        </div>
+        <button id="themeToggleBtn" class="theme-toggle-btn" title="Toggle Theme">☀️</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Container -->
+  <main class="main-content">
+    <div class="section-header">
+      <h1 class="section-title">All Cricket Matches</h1>
+    </div>
+
+    <!-- Filter Controls -->
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+      <div id="statusFilters" class="filter-tabs" style="margin-bottom: 0;">
+        <button class="tab-btn active" onclick="filterStatus('All', this)">All Statuses</button>
+        <button class="tab-btn" onclick="filterStatus('Live', this)">🔴 Live</button>
+        <button class="tab-btn" onclick="filterStatus('Upcoming', this)">📅 Upcoming</button>
+        <button class="tab-btn" onclick="filterStatus('Completed', this)">✅ Completed</button>
+      </div>
+
+      <div id="formatFilters" class="filter-tabs" style="margin-bottom: 0;">
+        <button class="tab-btn active" onclick="filterFormat('All', this)">All Formats</button>
+        <button class="tab-btn" onclick="filterFormat('Test', this)">Test</button>
+        <button class="tab-btn" onclick="filterFormat('ODI', this)">ODI</button>
+        <button class="tab-btn" onclick="filterFormat('T20', this)">T20</button>
+      </div>
+    </div>
+
+    <!-- Matches Grid -->
+    <div id="matchesContainer" class="matches-grid">
+      <!-- Injected by matches.js -->
+    </div>
+  </main>
+
+  <!-- Scorecard Modal -->
+  <div id="scorecardModal" class="modal-overlay">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="scorecardModalTitle" class="modal-title">Match Scorecard</h3>
+        <button class="modal-close" onclick="closeScorecardModal()">&times;</button>
+      </div>
+      <div id="scorecardModalBody" class="modal-body">
+        <!-- Injected dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem;">
+      <div>
+        <strong style="color: var(--text-main);">CricTrack</strong> — Static Cricket Stats & Live Match Dashboard
+      </div>
+      <div>
+        Data stored locally in browser via <code>localStorage</code>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../js/data.js"></script>
+  <script src="../js/app.js"></script>
+  <script src="../js/matches.js"></script>
+</body>
+</html>
