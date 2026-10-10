@@ -166,14 +166,14 @@
 
               ${striker ? `
                 <div style="display: flex; gap: 1.5rem; font-size: 0.9rem; margin-bottom: 0.4rem;">
-                  <div>🏏 <strong>${striker.name}*</strong>: ${striker.runs} (${striker.balls}b, 4s:${striker.fours}, 6s:${striker.sixes})</div>
+                  <div><strong>${striker.name}*</strong>: ${striker.runs} (${striker.balls}b, 4s:${striker.fours}, 6s:${striker.sixes})</div>
                   ${nonStriker ? `<div><strong>${nonStriker.name}</strong>: ${nonStriker.runs} (${nonStriker.balls}b)</div>` : ''}
                 </div>
               ` : ''}
 
               ${bowler.name ? `
                 <div style="font-size: 0.85rem; color: var(--text-muted);">
-                  ⚾ <strong>${bowler.name}</strong>: ${bowler.wickets}/${bowler.runs} in ${bowler.overs} overs
+                  <strong>${bowler.name}</strong>: ${bowler.wickets}/${bowler.runs} in ${bowler.overs} overs
                 </div>
               ` : ''}
             </div>
