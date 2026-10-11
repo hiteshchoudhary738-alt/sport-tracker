@@ -11,7 +11,7 @@ const DEFAULT_PLAYERS = [
     role: "Batsman",
     battingStyle: "Right-hand bat",
     bowlingStyle: "Right-arm medium",
-    photo: "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=400&q=80",
+    photo: "assets/players/virat_kohli.jpg",
     stats: {
       Test: { matches: 113, runs: 8848, highest: 254, avg: 49.15, sr: 55.56, hundreds: 29, fifties: 30, wickets: 0, bestBowling: "0/0", economy: 0, bowlAvg: 0 },
       ODI:  { matches: 292, runs: 13848, highest: 183, avg: 58.67, sr: 93.58, hundreds: 50, fifties: 72, wickets: 4, bestBowling: "1/13", economy: 5.2, bowlAvg: 166.25 },
@@ -25,7 +25,7 @@ const DEFAULT_PLAYERS = [
     role: "Bowler",
     battingStyle: "Right-hand bat",
     bowlingStyle: "Right-arm fast",
-    photo: "https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&w=400&q=80",
+    photo: "assets/players/jasprit_bumrah.jpg",
     stats: {
       Test: { matches: 36, runs: 268, highest: 34, avg: 7.65, sr: 25.10, hundreds: 0, fifties: 0, wickets: 159, bestBowling: "6/27", economy: 2.74, bowlAvg: 20.69 },
       ODI:  { matches: 89, runs: 95, highest: 14, avg: 5.27, sr: 50.00, hundreds: 0, fifties: 0, wickets: 149, bestBowling: "6/19", economy: 4.59, bowlAvg: 23.55 },
@@ -39,7 +39,7 @@ const DEFAULT_PLAYERS = [
     role: "Batsman",
     battingStyle: "Right-hand bat",
     bowlingStyle: "Right-arm leg spin",
-    photo: "https://images.unsplash.com/photo-1517649763962-0c623266010b?auto=format&fit=crop&w=400&q=80",
+    photo: "assets/players/steve_smith.jpg",
     stats: {
       Test: { matches: 109, runs: 9685, highest: 239, avg: 56.97, sr: 53.80, hundreds: 32, fifties: 41, wickets: 19, bestBowling: "3/18", economy: 3.82, bowlAvg: 54.47 },
       ODI:  { matches: 158, runs: 5446, highest: 164, avg: 43.91, sr: 87.35, hundreds: 12, fifties: 33, wickets: 28, bestBowling: "3/16", economy: 5.41, bowlAvg: 38.67 },
@@ -53,7 +53,7 @@ const DEFAULT_PLAYERS = [
     role: "Bowler",
     battingStyle: "Right-hand bat",
     bowlingStyle: "Right-arm leg spin",
-    photo: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=400&q=80",
+    photo: "assets/players/rashid_khan.jpg",
     stats: {
       Test: { matches: 5, runs: 106, highest: 51, avg: 13.25, sr: 64.24, hundreds: 0, fifties: 1, wickets: 34, bestBowling: "7/137", economy: 3.25, bowlAvg: 22.35 },
       ODI:  { matches: 103, runs: 1240, highest: 60, avg: 19.37, sr: 104.91, hundreds: 0, fifties: 5, wickets: 182, bestBowling: "7/18", economy: 4.21, bowlAvg: 20.12 },
@@ -67,7 +67,7 @@ const DEFAULT_PLAYERS = [
     role: "All-rounder",
     battingStyle: "Left-hand bat",
     bowlingStyle: "Right-arm fast medium",
-    photo: "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=400&q=80",
+    photo: "assets/players/ben_stokes.jpg",
     stats: {
       Test: { matches: 105, runs: 6508, highest: 258, avg: 35.75, sr: 59.21, hundreds: 13, fifties: 31, wickets: 203, bestBowling: "6/22", economy: 3.30, bowlAvg: 32.07 },
       ODI:  { matches: 114, runs: 3328, highest: 182, avg: 38.69, sr: 95.84, hundreds: 5, fifties: 22, wickets: 74, bestBowling: "5/61", economy: 6.05, bowlAvg: 42.39 },
@@ -81,7 +81,7 @@ const DEFAULT_PLAYERS = [
     role: "Batsman",
     battingStyle: "Right-hand bat",
     bowlingStyle: "Right-arm off spin",
-    photo: "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=400&q=80",
+    photo: "assets/players/babar_azam.jpg",
     stats: {
       Test: { matches: 52, runs: 3898, highest: 196, avg: 45.85, sr: 54.91, hundreds: 9, fifties: 26, wickets: 2, bestBowling: "1/2", economy: 4.10, bowlAvg: 23.00 },
       ODI:  { matches: 117, runs: 5729, highest: 158, avg: 56.72, sr: 88.75, hundreds: 19, fifties: 32, wickets: 0, bestBowling: "0/0", economy: 5.50, bowlAvg: 0 },
@@ -95,7 +95,7 @@ const DEFAULT_PLAYERS = [
     role: "Bowler",
     battingStyle: "Right-hand bat",
     bowlingStyle: "Right-arm fast",
-    photo: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80",
+    photo: "assets/players/pat_cummins.jpg",
     stats: {
       Test: { matches: 62, runs: 1289, highest: 63, avg: 17.18, sr: 43.20, hundreds: 0, fifties: 2, wickets: 269, bestBowling: "6/23", economy: 2.87, bowlAvg: 22.53 },
       ODI:  { matches: 88, runs: 442, highest: 37, avg: 12.27, sr: 78.45, hundreds: 0, fifties: 0, wickets: 141, bestBowling: "5/70", economy: 5.21, bowlAvg: 28.15 },
@@ -109,7 +109,7 @@ const DEFAULT_PLAYERS = [
     role: "Wicket-keeper",
     battingStyle: "Right-hand bat",
     bowlingStyle: "Right-arm off spin",
-    photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80",
+    photo: "assets/players/heinrich_klaasen.jpg",
     stats: {
       Test: { matches: 4, runs: 104, highest: 35, avg: 13.00, sr: 48.14, hundreds: 0, fifties: 0, wickets: 0, bestBowling: "0/0", economy: 0, bowlAvg: 0 },
       ODI:  { matches: 54, runs: 1723, highest: 174, avg: 41.02, sr: 114.86, hundreds: 4, fifties: 6, wickets: 0, bestBowling: "0/0", economy: 6.20, bowlAvg: 0 },
@@ -283,8 +283,26 @@ const STORAGE_KEYS = {
 
 // Initialize Storage
 function initData() {
-  if (!localStorage.getItem(STORAGE_KEYS.PLAYERS)) {
+  const existingPlayers = localStorage.getItem(STORAGE_KEYS.PLAYERS);
+  if (!existingPlayers) {
     localStorage.setItem(STORAGE_KEYS.PLAYERS, JSON.stringify(DEFAULT_PLAYERS));
+  } else {
+    try {
+      const players = JSON.parse(existingPlayers);
+      let updated = false;
+      players.forEach(p => {
+        const def = DEFAULT_PLAYERS.find(dp => dp.id === p.id);
+        if (def && (!p.photo || p.photo.includes("unsplash.com"))) {
+          p.photo = def.photo;
+          updated = true;
+        }
+      });
+      if (updated) {
+        localStorage.setItem(STORAGE_KEYS.PLAYERS, JSON.stringify(players));
+      }
+    } catch (e) {
+      localStorage.setItem(STORAGE_KEYS.PLAYERS, JSON.stringify(DEFAULT_PLAYERS));
+    }
   }
   if (!localStorage.getItem(STORAGE_KEYS.MATCHES)) {
     localStorage.setItem(STORAGE_KEYS.MATCHES, JSON.stringify(DEFAULT_MATCHES));
@@ -298,6 +316,19 @@ initData();
 
 // Storage CRUD Helpers
 window.CricData = {
+  resolvePlayerPhoto(photo) {
+    if (!photo) return "https://via.placeholder.com/400x300?text=Player+Photo";
+    if (photo.startsWith("http://") || photo.startsWith("https://") || photo.startsWith("data:")) return photo;
+    const isSubDir = window.location.pathname.includes("/pages/");
+    if (photo.startsWith("assets/")) {
+      return isSubDir ? "../" + photo : photo;
+    }
+    if (photo.startsWith("../assets/")) {
+      return isSubDir ? photo : photo.replace("../", "");
+    }
+    return photo;
+  },
+
   resetToDefault() {
     localStorage.setItem(STORAGE_KEYS.PLAYERS, JSON.stringify(DEFAULT_PLAYERS));
     localStorage.setItem(STORAGE_KEYS.MATCHES, JSON.stringify(DEFAULT_MATCHES));

@@ -1,4 +1,26 @@
+# Dependencies
 node_modules/
+**/node_modules/
+
+# Environment Variables & Secrets
+.env
+.env*.local
+server/.env
+!server/.env.example
+
+# Build Outputs
 dist/
+**/dist/
+build/
+
+# Python Cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+
+# IDE & OS Files
 .DS_Store
-*.local
+Thumbs.db
+.vscode/
+.idea/

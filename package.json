@@ -4,9 +4,10 @@
   "private": true,
   "description": "CricTrack — Cricket Stats & Live Match Dashboard",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "server": "npm --prefix server run dev",
+    "client": "npm --prefix client run dev",
+    "build:client": "npm --prefix client run build",
+    "scraper": "python python_service/icc_scraper.py"
   },
   "devDependencies": {
     "vite": "^8.3.4"

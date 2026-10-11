@@ -117,7 +117,7 @@ function renderLeaderboard() {
         <td><div class="${rankBadgeClass}">${rank}</div></td>
         <td>
           <div style="display: flex; align-items: center; gap: 0.75rem;">
-            <img src="${item.photo}" alt="${item.name}" style="width: 36px; height: 36px; border-radius: 50%; object-fit: cover;" onerror="this.src='https://via.placeholder.com/50'">
+            <img src="${CricData.resolvePlayerPhoto(item.photo)}" alt="${item.name}" style="width: 36px; height: 36px; border-radius: 50%; object-fit: cover;" onerror="this.src='https://via.placeholder.com/50'">
             <div>
               <div style="font-weight: 700;">${item.name}</div>
               <div style="font-size: 0.75rem; color: var(--text-muted);">${item.country}</div>

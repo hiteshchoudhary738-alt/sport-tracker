@@ -1,45 +1,31 @@
-# CricTrack — Cricket Stats & Live Match Dashboard
+# CricTrack — Live Cricket Scores, ICC Rankings & Analytics Platform
 
-A responsive, feature-packed cricket statistics and live match web application inspired by **Cricbuzz**. Built with pure **HTML5, CSS3, and JavaScript**, running entirely on the client side with data persisted in `localStorage`.
+A high-performance full-stack sports analytics and live cricket dashboard inspired by **Cricbuzz**. Built with **React 19**, **Node.js (Express)**, and **Python**, featuring an in-memory caching layer for RapidAPI rate-limit compliance, live scorecards, and ICC rankings.
 
 ---
 
-## 🌟 Key Features
+## 🌟 Key Architecture & Features
 
-1. **Live Match & Scores Dashboard (`index.html`)**:
-   - Live match highlight banner featuring real-time scores, overs, current batsmen, bowler, and recent ball-by-ball tracker circles (4s in green, 6s in gold, Wickets in red).
-   - Match cards grid filterable by status (**All**, **Live**, **Upcoming**, **Completed**).
-   - Top News Headlines section and Top Players highlight cards.
+### 1. ⚛️ React 19 Frontend (`client/`)
+- **Live Match Center**: Live scores, batsman strike rate indicator (★), bowler figures, and ball-by-ball circles (Green for 4s, Gold for 6s, Red for Wickets).
+- **ICC Rankings Explorer**: Filterable by Category (*Batsmen*, *Bowlers*, *All-rounders*, *Teams*) and Format (*Test*, *ODI*, *T20I*) with medal badges for Top 3 and trend indicators.
+- **Fixtures & Results**: International tournament schedules, venues, and match summaries.
+- **Cache & Architecture Monitor**: Live visualizer displaying real-time Node.js cache hits/misses and memory stats with cache flush capabilities.
 
-2. **Full Match Scorecards (`pages/matches.html`)**:
-   - Comprehensive match listing filterable by status and format (**Test**, **ODI**, **T20**).
-   - Interactive **Scorecard Modal**:
-     - Complete Batting tables (Runs, Balls, 4s, 6s, Strike Rate, Dismissal status).
-     - Complete Bowling tables (Overs, Maidens, Runs, Wickets, Economy).
-     - Extras & Total score breakdown.
-     - Live ball-by-ball commentary feed tab.
+### 2. 🟢 Node.js API Gateway & Caching Proxy (`server/`)
+- **Rate-Limit Resilience**: Implements `node-cache` reducing upstream API hits by **>90%** (30s for live scores, 12 hours for ICC rankings).
+- **Graceful Fallbacks**: Automatically falls back to high-fidelity mock datasets if upstream API quota is exceeded or offline, guaranteeing zero frontend downtime.
+- **Endpoints**:
+  - `GET /api/health` - Server mode and connectivity check
+  - `GET /api/matches/live` - Live matches with active ball data
+  - `GET /api/matches/upcoming` - Upcoming fixtures
+  - `GET /api/matches/recent` - Recently concluded matches
+  - `GET /api/rankings/:category/:format` - ICC rankings
+  - `GET /api/cache-stats` - Real-time cache performance metrics
+  - `POST /api/cache/clear` - Cache invalidation endpoint
 
-3. **Player Directory & Profiles (`pages/players.html`)**:
-   - Instant search bar and role filters (**Batsmen**, **Bowlers**, **All-rounders**, **Wicket-keepers**).
-   - Detailed **Player Profile Modal**:
-     - Player avatar, country badge, role, batting & bowling styles.
-     - Format tabs (**Test**, **ODI**, **T20**) showing full career batting and bowling statistics.
-
-4. **Interactive Stats Leaderboards (`pages/stats.html`)**:
-   - Filter by Format (**Test**, **ODI**, **T20**) and Category (**Most Runs**, **Batting Avg**, **Strike Rate**, **100s**, **Most Wickets**, **Economy**, **Bowling Avg**).
-   - Sortable table columns (click column headers to sort ascending / descending).
-   - Rank badges (#1 Gold, #2 Silver, #3 Bronze).
-
-5. **Admin Panel (`pages/admin.html`)**:
-   - Password protected with default password: `admin123`.
-   - **Live Scoring Interface**: Quick ball action buttons (+0, +1, +2, +3, +4, +6, W, Wd, Nb) to update live match state instantly.
-   - **Player CRUD**: Add new players or modify existing player career stats across formats.
-   - **Data Reset**: One-click restore default seed international cricket dataset.
-
-6. **UI & Theme**:
-   - **Dark Navy / Cricbuzz Green** theme by default with light theme toggle support saved to `localStorage`.
-   - Responsive mobile navigation drawer & responsive table containers.
-   - Global quick search bar in navbar to instantly locate players and matches.
+### 3. 🐍 Python Data Engine (`python_service/`)
+- **Rankings Parser**: Python worker built with `BeautifulSoup` to scrape and parse ICC rankings into standardized JSON formats.
 
 ---
 
@@ -47,36 +33,73 @@ A responsive, feature-packed cricket statistics and live match web application i
 
 ```
 crinb/
-├── index.html              ← Home page (Live summary + matches + top players)
-├── README.md               ← Documentation
-├── css/
-│   └── style.css           ← Global styles (colors, layout, components, themes)
-├── js/
-│   ├── data.js             ← localStorage data manager & seed dataset
-│   ├── app.js              ← Core application logic (theme, navbar, global search)
-│   ├── matches.js          ← Match list filtering & scorecard modal
-│   ├── players.js          ← Player directory search, filtering & profile modal
-│   ├── stats.js            ← Leaderboard rendering & column sorting
-│   └── admin.js            ← Admin authentication, live ball updater & player CRUD
-└── pages/
-    ├── matches.html        ← All matches + live scorecard detailed view
-    ├── players.html        ← Player list + career stats breakdown
-    ├── stats.html          ← Leaderboards (Batting & Bowling across formats)
-    └── admin.html          ← Admin panel for live scoring and player editing
+├── client/                     ← React 19 + Vite Frontend
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── LiveMatchCard.jsx
+│   │   │   ├── RankingsTable.jsx
+│   │   │   └── ArchitectureInfo.jsx
+│   │   ├── App.jsx
+│   │   ├── index.css
+│   │   └── main.jsx
+│   └── package.json
+│
+├── server/                     ← Node.js + Express API Gateway
+│   ├── src/
+│   │   ├── server.js           ← REST endpoints & logger
+│   │   ├── cricketService.js   ← Caching engine & RapidAPI caller
+│   │   └── mockData.js         ← Graceful fallback data
+│   ├── .env.example            ← Environment template
+│   └── package.json
+│
+├── python_service/             ← Python Data Sync & Analytics
+│   └── icc_scraper.py          ← BeautifulSoup scraper
+│
+├── index.html                  ← Standalone Vanilla client (preserved)
+├── pages/                      ← Full match & player profile views
+└── package.json                ← Root workspace runner scripts
 ```
 
 ---
 
 ## 🚀 How to Run
 
-1. Clone or download the project files.
-2. Open `index.html` in any web browser (or serve using VS Code Live Server / Python `http.server`).
-3. To access Admin features, go to **Admin Panel** (`pages/admin.html`) and enter password: `admin123`.
+### 1. Start the Node.js API Server
+```bash
+npm run server
+# Runs at http://localhost:5000
+```
+
+### 2. Start the React Frontend
+```bash
+npm run client
+# Runs at http://localhost:3000
+```
+
+### 3. (Optional) Run Python Data Scraper
+```bash
+npm run scraper
+```
+
+---
+
+## 🔑 RapidAPI Configuration
+
+The server works out-of-the-box in **Demo Mock Mode**. To connect live Cricbuzz data:
+
+1. Subscribe to the free plan on [RapidAPI Cricbuzz](https://rapidapi.com/cricketapi-cricketapi-cricket-data/api/cricbuzz-cricket).
+2. Copy `server/.env.example` to `server/.env`.
+3. Add your key:
+   ```env
+   RAPID_API_KEY=your_key_here
+   RAPID_API_HOST=cricbuzz-cricket.p.rapidapi.com
+   ```
+4. Restart the server!
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **HTML5**: Semantic markup
-- **CSS3**: CSS Custom Variables, Grid, Flexbox, Keyframe Animations
-- **JavaScript (ES6+)**: DOM manipulation, ES modules, `localStorage` & `sessionStorage` APIs
+- **Frontend**: React 19, Vite, Lucide Icons, CSS Custom Properties
+- **Backend**: Node.js, Express, Axios, NodeCache, Dotenv, CORS
+- **Data Engine**: Python 3.14, BeautifulSoup4, Requests

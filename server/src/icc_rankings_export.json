@@ -1,0 +1,100 @@
+{
+  "batsmen": {
+    "odi": [
+      {
+        "rank": 1,
+        "name": "Babar Azam",
+        "country": "Pakistan",
+        "rating": 824
+      },
+      {
+        "rank": 2,
+        "name": "Rohit Sharma",
+        "country": "India",
+        "rating": 765
+      },
+      {
+        "rank": 3,
+        "name": "Shubman Gill",
+        "country": "India",
+        "rating": 763
+      },
+      {
+        "rank": 4,
+        "name": "Virat Kohli",
+        "country": "India",
+        "rating": 746
+      },
+      {
+        "rank": 5,
+        "name": "Harry Tector",
+        "country": "Ireland",
+        "rating": 713
+      }
+    ],
+    "t20": [
+      {
+        "rank": 1,
+        "name": "Travis Head",
+        "country": "Australia",
+        "rating": 881
+      },
+      {
+        "rank": 2,
+        "name": "Suryakumar Yadav",
+        "country": "India",
+        "rating": 805
+      },
+      {
+        "rank": 3,
+        "name": "Phil Salt",
+        "country": "England",
+        "rating": 798
+      },
+      {
+        "rank": 4,
+        "name": "Babar Azam",
+        "country": "Pakistan",
+        "rating": 755
+      },
+      {
+        "rank": 5,
+        "name": "Mohammad Rizwan",
+        "country": "Pakistan",
+        "rating": 746
+      }
+    ],
+    "test": [
+      {
+        "rank": 1,
+        "name": "Joe Root",
+        "country": "England",
+        "rating": 899
+      },
+      {
+        "rank": 2,
+        "name": "Kane Williamson",
+        "country": "New Zealand",
+        "rating": 829
+      },
+      {
+        "rank": 3,
+        "name": "Harry Brook",
+        "country": "England",
+        "rating": 825
+      },
+      {
+        "rank": 4,
+        "name": "Yashasvi Jaiswal",
+        "country": "India",
+        "rating": 792
+      },
+      {
+        "rank": 5,
+        "name": "Steve Smith",
+        "country": "Australia",
+        "rating": 757
+      }
+    ]
+  }
+}

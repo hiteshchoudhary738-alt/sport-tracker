@@ -261,7 +261,7 @@ function onAdminPlayerSelectChange(playerId) {
     role: "Batsman",
     battingStyle: "Right-hand bat",
     bowlingStyle: "Right-arm medium",
-    photo: "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=400&q=80",
+    photo: "assets/players/virat_kohli.jpg",
     stats: {
       Test: { matches: 0, runs: 0, highest: 0, avg: 0, sr: 0, hundreds: 0, fifties: 0, wickets: 0, bestBowling: "0/0", economy: 0, bowlAvg: 0 },
       ODI:  { matches: 0, runs: 0, highest: 0, avg: 0, sr: 0, hundreds: 0, fifties: 0, wickets: 0, bestBowling: "0/0", economy: 0, bowlAvg: 0 },

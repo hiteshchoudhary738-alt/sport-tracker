@@ -62,7 +62,7 @@ function renderPlayersGrid() {
     return `
       <div class="player-card" onclick="openPlayerModal('${p.id}')">
         <div class="player-header">
-          <img src="${p.photo}" alt="${p.name}" class="player-photo" onerror="this.src='https://via.placeholder.com/400x300?text=Player+Photo'">
+          <img src="${CricData.resolvePlayerPhoto(p.photo)}" alt="${p.name}" class="player-photo" onerror="this.src='https://via.placeholder.com/400x300?text=Player+Photo'">
         </div>
         <div class="player-body">
           <div class="player-name">${p.name}</div>
@@ -124,7 +124,7 @@ function renderPlayerModalBody(player) {
 
   modalBody.innerHTML = `
     <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; align-items: center; background: var(--bg-subtle); padding: 1.25rem; border-radius: var(--radius-md); margin-bottom: 1.5rem;">
-      <img src="${player.photo}" alt="${player.name}" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent-green);" onerror="this.src='https://via.placeholder.com/150'">
+      <img src="${CricData.resolvePlayerPhoto(player.photo)}" alt="${player.name}" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent-green);" onerror="this.src='https://via.placeholder.com/150'">
       <div>
         <h2 style="font-size: 1.4rem; font-weight: 800;">${player.name}</h2>
         <div style="font-size: 0.95rem; color: var(--accent-green); font-weight: 600; margin-bottom: 0.4rem;">${player.country} • ${player.role}</div>
