@@ -24,9 +24,7 @@ const isKeyConfigured = () => {
   return Boolean(apiKey && apiKey !== 'your_rapidapi_key_here');
 };
 
-/**
- * Helper to make authenticated RapidAPI calls
- */
+ /* Helper to make authenticated RapidAPI calls */
 async function callRapidApi(endpoint) {
   const { apiKey, apiHost } = getEnvConfig();
   if (!isKeyConfigured()) {
@@ -45,9 +43,7 @@ async function callRapidApi(endpoint) {
   return response.data;
 }
 
-/**
- * 1. Fetch Live Matches
- */
+/* Fetch Live Matches */
 export async function getLiveMatches() {
   const cacheKey = 'matches:live';
   const cached = cricketCache.get(cacheKey);
@@ -89,9 +85,7 @@ export async function getLiveMatches() {
   return mockPayload;
 }
 
-/**
- * 2. Fetch Upcoming Matches
- */
+/* Fetch Upcoming Matches */
 export async function getUpcomingMatches() {
   const cacheKey = 'matches:upcoming';
   const cached = cricketCache.get(cacheKey);
@@ -127,9 +121,7 @@ export async function getUpcomingMatches() {
   return mockPayload;
 }
 
-/**
- * 3. Fetch Recent Matches
- */
+/*Fetch Recent Matches*/
 export async function getRecentMatches() {
   const cacheKey = 'matches:recent';
   const cached = cricketCache.get(cacheKey);
@@ -166,8 +158,8 @@ export async function getRecentMatches() {
 
 /**
  * 4. Fetch ICC Rankings
- * @param {string} category - batsmen | bowlers | allrounders | teams
- * @param {string} format - test | odi | t20
+   @param {string} category 
+   @param {string} format
  */
 export async function getRankings(category = 'batsmen', format = 'test') {
   const normalizedCategory = category.toLowerCase();
@@ -219,9 +211,7 @@ export async function getRankings(category = 'batsmen', format = 'test') {
   return mockPayload;
 }
 
-/**
- * Cache introspection & management
- */
+/* Cache introspection & management*/
 export function getCacheStats() {
   return {
     keys: cricketCache.keys(),

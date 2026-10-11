@@ -36,7 +36,7 @@ app.use((req, res, next) => {
   next();
 });
 
-// 1. Health check & configuration status
+// Health check & configuration status
 app.get('/api/health', (req, res) => {
   const hasKey = Boolean(process.env.RAPID_API_KEY && process.env.RAPID_API_KEY !== 'your_rapidapi_key_here');
   res.json({
@@ -49,7 +49,7 @@ app.get('/api/health', (req, res) => {
   });
 });
 
-// 2. Matches endpoints
+//  Matches endpoints
 app.get('/api/matches/live', async (req, res) => {
   try {
     const result = await getLiveMatches();
@@ -77,7 +77,7 @@ app.get('/api/matches/recent', async (req, res) => {
   }
 });
 
-// 3. ICC Rankings endpoint
+//  ICC Rankings endpoint
 // Example: /api/rankings/batsmen/test, /api/rankings/bowlers/odi, /api/rankings/teams/t20
 app.get('/api/rankings/:category/:format', async (req, res) => {
   try {
@@ -101,7 +101,7 @@ app.get('/api/rankings', async (req, res) => {
   }
 });
 
-// 4. Cache management endpoints
+//  Cache management endpoints
 app.get('/api/cache-stats', (req, res) => {
   res.json(getCacheStats());
 });
@@ -128,5 +128,4 @@ app.listen(PORT, () => {
   console.log(`  - Recent:    http://localhost:${PORT}/api/matches/recent`);
   console.log(`  - Rankings:  http://localhost:${PORT}/api/rankings/batsmen/odi`);
   console.log(`  - Cache:     http://localhost:${PORT}/api/cache-stats`);
-  console.log(`======================================================\n`);
 });
