@@ -44,10 +44,10 @@ export default function App() {
 
   return (
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
-      {/* Navbar */}
+      {/* Top Main Navbar (Cricbuzz Green) */}
       <header style={{
-        backgroundColor: 'var(--bg-surface)',
-        borderBottom: '1px solid var(--border)',
+        backgroundColor: 'var(--cb-green)',
+        boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
         position: 'sticky',
         top: 0,
         zIndex: 50
@@ -56,47 +56,48 @@ export default function App() {
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          height: '65px'
+          height: '52px'
         }}>
           {/* Logo */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <span style={{ fontSize: '1.6rem' }}>🏏</span>
-            <div style={{ fontWeight: 800, fontSize: '1.3rem', letterSpacing: '-0.02em' }}>
-              Cric<span style={{ color: 'var(--accent-green)' }}>Track</span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <span style={{ fontSize: '1.5rem' }}>🏏</span>
+            <div style={{ fontWeight: 800, fontSize: '1.4rem', color: '#ffffff', letterSpacing: '-0.03em' }}>
+              cric<span style={{ backgroundColor: 'rgba(0,0,0,0.18)', color: '#a7f3d0', padding: '1px 6px', borderRadius: '4px', fontSize: '0.85em', marginLeft: '3px' }}>buzz</span>
             </div>
             <span style={{
-              fontSize: '0.68rem',
-              backgroundColor: 'rgba(0, 210, 106, 0.15)',
-              color: 'var(--accent-green)',
-              padding: '2px 8px',
-              borderRadius: '999px',
+              fontSize: '0.65rem',
+              backgroundColor: 'rgba(255, 255, 255, 0.2)',
+              color: '#ffffff',
+              padding: '2px 6px',
+              borderRadius: '4px',
               fontWeight: 700,
               textTransform: 'uppercase'
             }}>
-              PRO
+              LIVE
             </span>
           </div>
 
           {/* Navigation Tabs */}
-          <nav style={{ display: 'flex', gap: '8px' }}>
+          <nav style={{ display: 'flex', height: '100%', gap: '2px' }}>
             <button
               onClick={() => setActiveTab('live')}
               style={{
                 display: 'flex',
                 alignItems: 'center',
                 gap: '6px',
-                padding: '8px 16px',
-                borderRadius: '8px',
+                padding: '0 16px',
                 border: 'none',
                 cursor: 'pointer',
                 fontWeight: 600,
                 fontSize: '0.88rem',
-                backgroundColor: activeTab === 'live' ? 'var(--bg-card)' : 'transparent',
-                color: activeTab === 'live' ? 'var(--accent-green)' : 'var(--text-muted)'
+                backgroundColor: activeTab === 'live' ? 'var(--cb-green-dark)' : 'transparent',
+                color: '#ffffff',
+                borderBottom: activeTab === 'live' ? '3px solid #ffffff' : '3px solid transparent',
+                transition: 'background-color 0.15s ease'
               }}
             >
               <Activity size={16} />
-              Live & Fixtures
+              Live Scores & Matches
             </button>
 
             <button
@@ -105,14 +106,15 @@ export default function App() {
                 display: 'flex',
                 alignItems: 'center',
                 gap: '6px',
-                padding: '8px 16px',
-                borderRadius: '8px',
+                padding: '0 16px',
                 border: 'none',
                 cursor: 'pointer',
                 fontWeight: 600,
                 fontSize: '0.88rem',
-                backgroundColor: activeTab === 'rankings' ? 'var(--bg-card)' : 'transparent',
-                color: activeTab === 'rankings' ? 'var(--accent-green)' : 'var(--text-muted)'
+                backgroundColor: activeTab === 'rankings' ? 'var(--cb-green-dark)' : 'transparent',
+                color: '#ffffff',
+                borderBottom: activeTab === 'rankings' ? '3px solid #ffffff' : '3px solid transparent',
+                transition: 'background-color 0.15s ease'
               }}
             >
               <Award size={16} />
@@ -125,22 +127,96 @@ export default function App() {
                 display: 'flex',
                 alignItems: 'center',
                 gap: '6px',
-                padding: '8px 16px',
-                borderRadius: '8px',
+                padding: '0 16px',
                 border: 'none',
                 cursor: 'pointer',
                 fontWeight: 600,
                 fontSize: '0.88rem',
-                backgroundColor: activeTab === 'architecture' ? 'var(--bg-card)' : 'transparent',
-                color: activeTab === 'architecture' ? 'var(--accent-blue)' : 'var(--text-muted)'
+                backgroundColor: activeTab === 'architecture' ? 'var(--cb-green-dark)' : 'transparent',
+                color: '#ffffff',
+                borderBottom: activeTab === 'architecture' ? '3px solid #ffffff' : '3px solid transparent',
+                transition: 'background-color 0.15s ease'
               }}
             >
               <Cpu size={16} />
-              Architecture
+              Architecture & Cache
             </button>
           </nav>
+
+          {/* External links or status */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+            <button
+              onClick={fetchLive}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '4px',
+                background: 'rgba(255, 255, 255, 0.15)',
+                color: '#ffffff',
+                border: 'none',
+                padding: '5px 10px',
+                borderRadius: '4px',
+                fontSize: '0.75rem',
+                cursor: 'pointer',
+                fontWeight: 600
+              }}
+              title="Refresh Live Scores"
+            >
+              <RefreshCw size={12} />
+              Refresh
+            </button>
+          </div>
         </div>
       </header>
+
+      {/* Cricbuzz Sub-Header Match Ticker Strip */}
+      <div style={{
+        backgroundColor: 'var(--cb-subnav)',
+        color: '#ffffff',
+        fontSize: '0.8rem',
+        borderBottom: '1px solid rgba(0,0,0,0.1)'
+      }}>
+        <div className="container" style={{
+          display: 'flex',
+          alignItems: 'center',
+          height: '38px',
+          overflowX: 'auto',
+          whiteSpace: 'nowrap'
+        }}>
+          <div style={{
+            backgroundColor: 'var(--cb-subnav-active)',
+            padding: '0 12px',
+            height: '100%',
+            display: 'flex',
+            alignItems: 'center',
+            fontWeight: 700,
+            fontSize: '0.75rem',
+            letterSpacing: '0.5px'
+          }}>
+            MATCHES
+          </div>
+          {liveMatches.length > 0 ? (
+            liveMatches.map((m, idx) => (
+              <div key={idx} style={{
+                padding: '0 14px',
+                borderRight: '1px solid rgba(255,255,255,0.1)',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px',
+                fontSize: '0.78rem'
+              }}>
+                <span style={{ color: '#ff6b6b', fontWeight: 800, fontSize: '0.7rem' }}>● LIVE</span>
+                <span style={{ fontWeight: 600 }}>{m.team1?.name} vs {m.team2?.name}</span>
+                <span style={{ color: '#cbd5e1' }}>({m.team2?.score || m.team1?.score})</span>
+              </div>
+            ))
+          ) : (
+            <div style={{ padding: '0 14px', color: '#94a3b8', fontSize: '0.78rem' }}>
+              IND vs AUS • SA vs ENG (SA won by 42 runs) • PAK vs AFG
+            </div>
+          )}
+        </div>
+      </div>
 
       {/* Main Content Area */}
       <main className="container" style={{ flex: 1, padding: '2rem 1.25rem' }}>
@@ -306,22 +382,23 @@ export default function App() {
       {/* Footer */}
       <footer style={{
         borderTop: '1px solid var(--border)',
-        padding: '1.5rem 0',
-        backgroundColor: 'var(--bg-surface)',
+        padding: '1.25rem 0',
+        backgroundColor: '#1b2430',
+        color: '#cbd5e1',
         marginTop: '3rem'
       }}>
         <div className="container" style={{
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          fontSize: '0.8rem',
-          color: 'var(--text-sub)'
+          fontSize: '0.85rem'
         }}>
-          <div>
-            Built with <b>React 19</b>, <b>Node.js (Express)</b>, <b>Python</b> & <b>RapidAPI</b>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <span style={{ fontWeight: 800, color: '#ffffff' }}>cric<span style={{ color: '#6ee7b7' }}>buzz</span></span>
+            <span style={{ color: '#94a3b8' }}>• React 19 Live Cricket Platform</span>
           </div>
-          <div>
-            Portfolio Ready • High-Performance Sports Architecture
+          <div style={{ color: '#94a3b8', fontSize: '0.8rem' }}>
+            Inspired by Cricbuzz.com • Live Scores, ICC Rankings & Ball-by-Ball Analytics
           </div>
         </div>
       </footer>

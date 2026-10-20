@@ -1,20 +1,28 @@
 :root {
-  --bg-primary: #0a0e17;
-  --bg-surface: #111827;
-  --bg-card: #182234;
-  --bg-card-hover: #1f2c42;
-  --border: #243247;
-  --accent-green: #00d26a;
-  --accent-green-dark: #00a854;
-  --accent-green-bg: rgba(0, 210, 106, 0.12);
-  --accent-blue: #3b82f6;
+  /* Cricbuzz Signature Green & Clean Palette */
+  --cb-green: #009270;
+  --cb-green-dark: #007559;
+  --cb-subnav: #4a4a4a;
+  --cb-subnav-active: #333333;
+  --bg-primary: #eceff1;
+  --bg-surface: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f8fafc;
+  --border: #e2e8f0;
+  
+  --accent-green: #009270;
+  --accent-green-dark: #007559;
+  --accent-green-bg: rgba(0, 146, 112, 0.1);
+  --accent-blue: #0284c7;
   --accent-amber: #f59e0b;
-  --accent-red: #ef4444;
-  --text-main: #f3f4f6;
-  --text-muted: #9ca3af;
-  --text-sub: #6b7280;
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+  --accent-red: #d32f2f;
+  
+  --text-main: #222222;
+  --text-muted: #64748b;
+  --text-sub: #475569;
+  
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
 }
 
 * {

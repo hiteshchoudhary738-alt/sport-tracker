@@ -8,21 +8,22 @@
 </head>
 <body>
 
-  <!-- Navigation Bar -->
+  <!-- Navigation Bar (Cricbuzz Style) -->
   <nav class="navbar">
     <div class="nav-container">
       <a href="index.html" class="brand-logo">
-        🏏 Cric<span class="green">Track</span>
+        🏏 cric<span class="cb-accent">buzz</span>
       </a>
 
       <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation">☰</button>
 
       <ul class="nav-menu" id="navMenu">
-        <li><a href="index.html" class="nav-link active">Home</a></li>
-        <li><a href="pages/matches.html" class="nav-link">Matches</a></li>
+        <li><a href="index.html" class="nav-link active">Live Scores</a></li>
+        <li><a href="pages/matches.html" class="nav-link">Schedule</a></li>
+        <li><a href="pages/matches.html?filter=Completed" class="nav-link">Archives</a></li>
         <li><a href="pages/players.html" class="nav-link">Players</a></li>
-        <li><a href="pages/stats.html" class="nav-link">Stats </a></li>
-        <li><a href="pages/admin.html" class="nav-link">Admin Panel</a></li>
+        <li><a href="pages/stats.html" class="nav-link">Rankings</a></li>
+        <li><a href="pages/admin.html" class="nav-link">Admin</a></li>
       </ul>
 
       <div class="nav-right">
@@ -35,6 +36,25 @@
       </div>
     </div>
   </nav>
+
+  <!-- Cricbuzz Quick Matches Strip -->
+  <div class="cb-matches-strip">
+    <div class="cb-strip-inner" id="cbQuickStrip">
+      <div class="cb-strip-label">MATCHES</div>
+      <a href="pages/matches.html" class="cb-strip-item">
+        <span class="cb-strip-live-tag">● LIVE</span> IND vs AUS — IND 184/4 (18.2)
+      </a>
+      <a href="pages/matches.html" class="cb-strip-item">
+        <span>SA vs ENG</span> — SA won by 42 runs
+      </a>
+      <a href="pages/matches.html" class="cb-strip-item">
+        <span>PAK vs AFG</span> — Tomorrow, 19:00 IST
+      </a>
+      <a href="pages/matches.html" class="cb-strip-item" style="color: #6ee7b7; font-weight: 600;">
+        ALL MATCHES →
+      </a>
+    </div>
+  </div>
 
   <!-- Main Content Container -->
   <main class="main-content">
@@ -86,12 +106,13 @@
 
   <!-- Footer -->
   <footer class="footer">
-    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem;">
-      <div>
-        <strong style="color: var(--text-main);">CricTrack</strong> — Static Cricket Stats & Live Match Dashboard
+    <div style="max-width: 1240px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem;">
+      <div style="display: flex; align-items: center; gap: 0.5rem;">
+        <strong style="color: #ffffff; font-size: 1.1rem;">🏏 cric<span style="color: #6ee7b7;">buzz</span></strong>
+        <span style="color: rgba(255,255,255,0.7); font-size: 0.85rem;">— Live Cricket Scores, Ball-by-Ball Commentary & Statistics</span>
       </div>
-      <div>
-        Data stored locally in browser via <code>localStorage</code>
+      <div style="color: rgba(255,255,255,0.7); font-size: 0.8rem;">
+        Inspired by Cricbuzz.com • Fast & Responsive Live Cricket Center
       </div>
     </div>
   </footer>

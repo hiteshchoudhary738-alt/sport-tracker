@@ -8,21 +8,22 @@
 </head>
 <body>
 
-  <!-- Navigation Bar -->
+  <!-- Navigation Bar (Cricbuzz Style) -->
   <nav class="navbar">
     <div class="nav-container">
       <a href="../index.html" class="brand-logo">
-        🏏 Cric<span class="green">Track</span>
+        🏏 cric<span class="cb-accent">buzz</span>
       </a>
 
       <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation">☰</button>
 
       <ul class="nav-menu" id="navMenu">
-        <li><a href="../index.html" class="nav-link">Home</a></li>
-        <li><a href="matches.html" class="nav-link active">Matches</a></li>
+        <li><a href="../index.html" class="nav-link">Live Scores</a></li>
+        <li><a href="matches.html" class="nav-link active">Schedule</a></li>
+        <li><a href="matches.html?filter=Completed" class="nav-link">Archives</a></li>
         <li><a href="players.html" class="nav-link">Players</a></li>
-        <li><a href="stats.html" class="nav-link">Stats Leaderboard</a></li>
-        <li><a href="admin.html" class="nav-link">Admin Panel</a></li>
+        <li><a href="stats.html" class="nav-link">Rankings</a></li>
+        <li><a href="admin.html" class="nav-link">Admin</a></li>
       </ul>
 
       <div class="nav-right">
@@ -78,12 +79,13 @@
 
   <!-- Footer -->
   <footer class="footer">
-    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem;">
-      <div>
-        <strong style="color: var(--text-main);">CricTrack</strong> — Static Cricket Stats & Live Match Dashboard
+    <div style="max-width: 1240px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem;">
+      <div style="display: flex; align-items: center; gap: 0.5rem;">
+        <strong style="color: #ffffff; font-size: 1.1rem;">🏏 cric<span style="color: #6ee7b7;">buzz</span></strong>
+        <span style="color: rgba(255,255,255,0.7); font-size: 0.85rem;">— Live Cricket Scores, Ball-by-Ball Commentary & Statistics</span>
       </div>
-      <div>
-        Data stored locally in browser via <code>localStorage</code>
+      <div style="color: rgba(255,255,255,0.7); font-size: 0.8rem;">
+        Inspired by Cricbuzz.com • Matches & Scorecards
       </div>
     </div>
   </footer>
