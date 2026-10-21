@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Award, TrendingUp, TrendingDown, Minus, RefreshCw } from 'lucide-react';
+import { API_BASE_URL } from '../config';
 
 const CATEGORIES = [
   { id: 'batsmen', label: 'Batsmen' },
@@ -25,7 +26,7 @@ export default function RankingsTable() {
     let isMounted = true;
     setLoading(true);
 
-    fetch(`http://localhost:5000/api/rankings/${category}/${format}`)
+    fetch(`${API_BASE_URL}/api/rankings/${category}/${format}`)
       .then(res => res.json())
       .then(json => {
         if (!isMounted) return;

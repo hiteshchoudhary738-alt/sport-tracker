@@ -3,6 +3,7 @@ import { Activity, Award, Calendar, CheckCircle, RefreshCw, Cpu, Radio, Shield }
 import LiveMatchCard from './components/LiveMatchCard';
 import RankingsTable from './components/RankingsTable';
 import ArchitectureInfo from './components/ArchitectureInfo';
+import { API_BASE_URL } from './config';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('live');
@@ -14,7 +15,7 @@ export default function App() {
 
   // Fetch live matches
   const fetchLive = () => {
-    fetch('http://localhost:5000/api/matches/live')
+    fetch(`${API_BASE_URL}/api/matches/live`)
       .then(r => r.json())
       .then(json => {
         setLiveMatches(json.data || []);
@@ -29,12 +30,12 @@ export default function App() {
     fetchLive();
     const interval = setInterval(fetchLive, 30000); // 30s poll
 
-    fetch('http://localhost:5000/api/matches/upcoming')
+    fetch(`${API_BASE_URL}/api/matches/upcoming`)
       .then(r => r.json())
       .then(json => setUpcomingMatches(json.data || []))
       .catch(console.error);
 
-    fetch('http://localhost:5000/api/matches/recent')
+    fetch(`${API_BASE_URL}/api/matches/recent`)
       .then(r => r.json())
       .then(json => setRecentMatches(json.data || []))
       .catch(console.error);

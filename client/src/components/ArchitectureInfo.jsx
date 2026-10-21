@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Server, Database, Cpu, RefreshCw, Trash2, CheckCircle2 } from 'lucide-react';
+import { API_BASE_URL } from '../config';
 
 export default function ArchitectureInfo() {
   const [cacheData, setCacheData] = useState(null);
@@ -10,8 +11,8 @@ export default function ArchitectureInfo() {
   const fetchStats = () => {
     setLoading(true);
     Promise.all([
-      fetch('http://localhost:5000/api/cache-stats').then(r => r.json()),
-      fetch('http://localhost:5000/api/health').then(r => r.json())
+      fetch(`${API_BASE_URL}/api/cache-stats`).then(r => r.json()),
+      fetch(`${API_BASE_URL}/api/health`).then(r => r.json())
     ])
       .then(([cache, health]) => {
         setCacheData(cache);
@@ -29,7 +30,7 @@ export default function ArchitectureInfo() {
 
   const handleClearCache = async () => {
     try {
-      const res = await fetch('http://localhost:5000/api/cache/clear', { method: 'POST' });
+      const res = await fetch(`${API_BASE_URL}/api/cache/clear`, { method: 'POST' });
       const data = await res.json();
       setMessage(data.message);
       fetchStats();

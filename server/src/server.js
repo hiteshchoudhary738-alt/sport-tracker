@@ -101,7 +101,7 @@ app.get('/api/rankings', async (req, res) => {
   }
 });
 
-//  Cache management endpoints
+// Cache management endpoints
 app.get('/api/cache-stats', (req, res) => {
   res.json(getCacheStats());
 });
@@ -110,7 +110,32 @@ app.post('/api/cache/clear', (req, res) => {
   res.json(clearCache());
 });
 
-// 404 handler
+// Production Static Serving
+// Serve built React client assets when available
+const clientDistPath = path.resolve(__dirname, '../../client/dist');
+app.use(express.static(clientDistPath));
+
+// Also serve the standalone client files if requested
+const rootStaticPath = path.resolve(__dirname, '../../');
+app.use('/static', express.static(rootStaticPath));
+
+// For all non-API GET routes, serve React's index.html
+app.get('*', (req, res, next) => {
+  if (req.path.startsWith('/api')) {
+    return next();
+  }
+  const indexPath = path.join(clientDistPath, 'index.html');
+  res.sendFile(indexPath, (err) => {
+    if (err) {
+      // Fallback to workspace root index.html if client/dist is not built
+      res.sendFile(path.join(rootStaticPath, 'index.html'), (err2) => {
+        if (err2) next();
+      });
+    }
+  });
+});
+
+// 404 handler for API routes
 app.use((req, res) => {
   res.status(404).json({ error: 'Endpoint not found', path: req.originalUrl });
 });
