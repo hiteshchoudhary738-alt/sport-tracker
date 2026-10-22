@@ -63,24 +63,6 @@ async function callRapidApi(endpoint) {
     // No secondary configured, rethrow
     throw primaryErr;
   }
-}
-
-  const { apiKey, apiHost } = getEnvConfig();
-  if (!isKeyConfigured()) {
-    throw new Error('RapidAPI Key not configured');
-  }
-
-  const url = `https://${apiHost}${endpoint}`;
-  const response = await axios.get(url, {
-    headers: {
-      'x-rapidapi-key': apiKey,
-      'x-rapidapi-host': apiHost
-    },
-    timeout: 8000
-  });
-
-  return response.data;
-}
 
 /* Fetch Live Matches */
 export async function getLiveMatches() {
