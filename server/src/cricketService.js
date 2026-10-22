@@ -26,6 +26,45 @@ const isKeyConfigured = () => {
 
  /* Helper to make authenticated RapidAPI calls */
 async function callRapidApi(endpoint) {
+  // Primary RapidAPI call (Cricbuzz)
+  const { apiKey, apiHost } = getEnvConfig();
+  const urlPrimary = `https://${apiHost}${endpoint}`;
+  try {
+    const response = await axios.get(urlPrimary, {
+      headers: {
+        'x-rapidapi-key': apiKey,
+        'x-rapidapi-host': apiHost
+      },
+      timeout: 8000
+    });
+    return response.data;
+  } catch (primaryErr) {
+    console.warn(`⚠️ Primary RapidAPI request failed: ${primaryErr.message}`);
+    // Attempt secondary API if configured
+    const secondaryHost = process.env.SECONDARY_API_HOST?.trim();
+    const secondaryKey = process.env.SECONDARY_API_KEY?.trim();
+    if (secondaryHost && secondaryKey) {
+      const urlSecondary = `https://${secondaryHost}${endpoint}`;
+      try {
+        const response = await axios.get(urlSecondary, {
+          headers: {
+            'x-rapidapi-key': secondaryKey,
+            'x-rapidapi-host': secondaryHost
+          },
+          timeout: 8000
+        });
+        console.info('✅ Fetched data from secondary API');
+        return response.data;
+      } catch (secondaryErr) {
+        console.warn(`⚠️ Secondary API request also failed: ${secondaryErr.message}`);
+        throw primaryErr; // propagate original error
+      }
+    }
+    // No secondary configured, rethrow
+    throw primaryErr;
+  }
+}
+
   const { apiKey, apiHost } = getEnvConfig();
   if (!isKeyConfigured()) {
     throw new Error('RapidAPI Key not configured');
@@ -162,6 +201,11 @@ export async function getRecentMatches() {
    @param {string} format
  */
 export async function getRankings(category = 'batsmen', format = 'test') {
+  // Primary RapidAPI config (cricbuzz)
+  const primaryConfig = getEnvConfig();
+  // Optional secondary API (e.g., another public cricket rankings provider)
+  const secondaryHost = process.env.SECONDARY_API_HOST?.trim();
+  const secondaryKey = process.env.SECONDARY_API_KEY?.trim();
   const normalizedCategory = category.toLowerCase();
   const normalizedFormat = format.toLowerCase();
   const cacheKey = `rankings:${normalizedCategory}:${normalizedFormat}`;
